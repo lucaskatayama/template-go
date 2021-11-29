@@ -5,14 +5,15 @@ Copyright © 2021 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
-	"github.com/lucaskatayama/hexgo/internal/app"
-	"github.com/lucaskatayama/hexgo/internal/ui/rest"
 	"github.com/spf13/cobra"
+
+	"github.com/lucaskatayama/hexgo/internal/app"
+	"github.com/lucaskatayama/hexgo/internal/ui/grpc"
 )
 
-// runCmd represents the run command
-var runCmd = &cobra.Command{
-	Use:   "run",
+// grpcCmd represents the grpc command
+var grpcCmd = &cobra.Command{
+	Use:   "grpc",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -22,20 +23,20 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		app.Config()
-		rest.Run()
+		grpc.Run()
 	},
 }
 
 func init() {
-	httpCmd.AddCommand(runCmd)
+	rootCmd.AddCommand(grpcCmd)
 
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// runCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// grpcCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// runCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// grpcCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

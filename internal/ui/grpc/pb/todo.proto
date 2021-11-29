@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "github.com/lucaskatayama/hexgo/internal/grpc/pb";
+
+service Todo {
+  rpc ListTodo (TodoRequest) returns (TodoResponse) {}
+}
+
+message TodoRequest {
+  string description = 1;
+}
+
+message TodoItem {
+  string description = 1;
+}
+
+message TodoResponse {
+  repeated TodoItem todos = 1;
+}

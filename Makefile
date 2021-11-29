@@ -1,3 +1,3 @@
 
 dev:
-	air . http run
+
